@@ -1,0 +1,10 @@
+applications:
+- path: .
+  memory: 128M
+  instances: 1
+  domain: mybluemix.net
+  name: a-simple-startkit-web-nodejs
+  host: a-simple-startkit-web-nodejs
+  disk_quota: 1024M
+#  services:
+#    -
