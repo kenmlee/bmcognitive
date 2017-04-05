@@ -1,0 +1,8 @@
+<div class="inline">
+  <img src="/assets/images/microphone.png" class="button" style="border: 0px; padding: 0px;" />
+  <button class="button button-primary" (click)="recordButton()"> {{ buttonTitle }}</button>
+  <audio #audio class="audio" [hidden]="!stream">
+    Your browser does not support the <code>audio</code> element.
+  </audio>
+  <p>{{transcript}}</p>
+</div>

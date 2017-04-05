@@ -1,10 +1,11 @@
+---
 applications:
 - path: .
   memory: 128M
   instances: 1
   domain: mybluemix.net
-  name: a-simple-startkit-web-nodejs
-  host: a-simple-startkit-web-nodejs
+  name: bmcognitive-01
+  host: bmcognitive-01
   disk_quota: 1024M
-#  services:
-#    -
+  services:
+    - Speech to Text-xo

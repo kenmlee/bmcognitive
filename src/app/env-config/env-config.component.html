@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="four columns">
+    <label class="compact">Name:</label>
+  </div>
+  <div class="eight columns">
+    <span>{{name}}</span><span [hidden]="!isLocal">@localhost</span>
+  </div>
+</div>
+
+<div class="row" [hidden]="connects?.length<1">
+  <table class="u-full-width">
+    <thead>
+      <tr>
+        <th>Services</th>
+        <th>Label</th>
+        <th>Connects</th>
+        <th>Token</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let connect of connects">
+        <td>{{connect.service}}</td>
+        <td>{{connect.label}}</td>
+        <td>{{connect.name}}</td>
+        <td><button class='button button-primary' (click)="getToken(connect)">get token</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="row" [hidden]="!currentConnect">
+  <label for="token">the token of [{{ currentConnect?.name}}]:</label>
+  <textarea disabled class="u-full-width" placeholder="<empty>" name="token">{{token}}</textarea>
+</div>

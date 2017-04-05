@@ -1,0 +1,7 @@
+.compact {
+  display: inline;
+}
+
+textarea {
+  min-height: 256px;
+}

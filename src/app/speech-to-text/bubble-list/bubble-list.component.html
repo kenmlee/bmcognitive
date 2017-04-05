@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="nine columns">
+    <app-audio-recorder></app-audio-recorder>
+  </div>
+  <div class="three columns" [hidden]="!bubbleService.count()">
+    <button class="button u-pull-right" (click)="bubbleService.clear()">
+     Clear History
+  </button>
+  </div>
+</div>
+
+
+<div class="row dialog-border" [hidden]="bubbleService.bubbles.length==0">
+  <div *ngFor="let bubble of bubbleService.bubbles; let odd=odd; let index=index" class="row">
+    <div [class.offset-by-six]="odd" class="six columns">
+      <div class="timestamp">-- {{bubble.startTime | date: "hh:mm:ss"}} --</div>
+      <div class="bubble">
+        {{bubble.content}}
+      </div>
+    </div>
+  </div>
+</div>

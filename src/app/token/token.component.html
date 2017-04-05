@@ -1,0 +1,33 @@
+<form>
+  <div class="row">
+    <div class="six columns">
+      <label for="username">Credential User Name</label>
+      <input class="u-full-width" type="text" placeholder="bluemix credential" name="username" [(ngModel)]="username">
+    </div>
+    <div class="six columns">
+      <label for="password">Credential Password</label>
+      <input class="u-full-width" type="password" name="password" [(ngModel)]="password" placeholder="******">
+    </div>
+  </div>
+  <div class="row">
+    <div class="six columns">
+      <label for="service">Waston Services</label>
+      <select class="u-full-width" name="services" [(ngModel)]="selectedService">
+        <option [value]="service" *ngFor="let service of services">
+          {{service}}
+        </option>
+      </select>
+    </div>
+    <div class="six columns">
+      <label for="url">URL</label>
+      <input class="u-full-width" type="text" placeholder="credential url" name="url" [(ngModel)]="url">
+    </div>
+  </div>
+  <div class="row">
+    <button class="button" [class.button-primary]="!submitted" [disabled]="submitted" (click)="getToken()">get token</button>
+  </div>
+  <div class="row">
+    <label for="token">Token:</label>
+    <textarea disabled class="u-full-width" placeholder="<empty>" name="token">{{token}}</textarea>
+  </div>
+</form>

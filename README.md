@@ -1,16 +1,19 @@
-# bluemix-dev
-A simple start kit for web-app@bluemix with Nodejs+Angular+Skeleton.
+# bluemix cognitive application
 
->You SHOULD only use this repository in development environment as it transpiler typescript on browser directly. Please using Bluemix Pipeline to build and package before deploying to your production environment.
+>You SHOULD only use this repository in development environment as it transpile typescript on browser directly. Please using Bluemix Pipeline to build and package before deploying to your production environment.
 
 ## Installation
+```
+yarn
+```
+or 
 ```
 npm install
 ```
 
 ## start web app locally
 ```
-npm start
+npm run dev
 ```
 
 ## deploy to bluemix
@@ -25,13 +28,16 @@ applications:
   host: <your-application-sub-domain-name>
   disk_quota: 1024M
   services:
-    - <Any services you want to connect>
+    - Speech to Text-xx
 ```
 
 Then:
 ```
 cf push
 ```
+
+## more of @angular/cli
+[@angular/cli README](./angular.cli.README.md)
 
 ### Thanks
 [Zero2Cognitive](https://github.com/rddill-IBM/ZeroToCognitive)
