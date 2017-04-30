@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { EnvConfigComponent } from './env-config/env-config.component';
 import { TokenComponent } from './token/token.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ReferenceComponent } from './reference/reference.component';
 
 const routes: Routes = [
   {
@@ -21,7 +22,11 @@ const routes: Routes = [
       {
         path: 'token',
         component: TokenComponent
-      }
+      },
+      {
+        path: 'reference',
+        component: ReferenceComponent
+      },
     ]
   },
   {

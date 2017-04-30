@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import {BubbleListComponent} from './bubble-list/bubble-list.component';
+import { SpeechToTextComponent } from './speech-to-text/speech-to-text.component';
 
 const routes: Routes = [
   {
     path: 'speech-to-text',
-    component: BubbleListComponent
+    component: SpeechToTextComponent
   }
 ];
 

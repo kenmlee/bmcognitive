@@ -1,0 +1,14 @@
+<div class="option-list">
+  {{ selectedLanguage }} - {{ selectedSampleRate }}
+  <md-select [(ngModel)]="selectedModel" (change)="modelChanged($event)">
+    <md-option *ngFor="let model of languageModels" [value]="model.name">
+      {{ model.name}}
+    </md-option>
+  </md-select>
+  <md-input-container>
+    <input mdInput placeholder="model GUID" [(ngModel)]="customizedModelGUID">
+  </md-input-container>
+  <md-radio-group>
+    <md-checkbox [(ngModel)]="isLoggingData">Logging data</md-checkbox>
+  </md-radio-group>
+</div>

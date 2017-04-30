@@ -1,19 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { BubbleService } from './bubble.service';
+import { Bubble } from './bubble';
 
 @Component({
   selector: 'app-bubble-list',
   templateUrl: './bubble-list.component.html',
-  styleUrls: ['./bubble-list.component.css'],
+  styleUrls: ['./bubble-list.component.scss'],
   providers: [BubbleService]
 })
 export class BubbleListComponent implements OnInit {
+  @Input() bubbles: Array<Bubble> = [];
 
-  constructor(private bubbleService: BubbleService) { }
+  constructor(private bubbleService: BubbleService, public sanitizer: DomSanitizer) {
+  }
 
   ngOnInit() {
   }
-
   // TODO: still working on. Not finished.
   // displayTime(index:number):boolean{
   //     if(!this.latestTime)this.latestTime=this.getBubble(0).startTime;

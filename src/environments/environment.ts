@@ -8,8 +8,8 @@ import * as _ from 'lodash';
 
 const environment_settings = {
   production: false,
-  BASE_API_URL: 'http://localhost:3030/',
-  CFENV_URL: `http://localhost:3030/cfenv`
+  BASE_API_URL: `${location.protocol}//${location.hostname}:3030/`,
+  CFENV_URL: `${location.protocol}//${location.hostname}:3030/cfenv`
   // CFENV_URL: 'https://bmcognitive-01.mybluemix.net/cfenv'
 };
 

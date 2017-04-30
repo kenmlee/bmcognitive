@@ -1,3 +1,4 @@
-textarea {
-  min-height: 512px;
+.full-width {
+  width: 100%;
+  box-sizing: border-box;
 }

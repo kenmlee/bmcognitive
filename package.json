@@ -5,17 +5,20 @@
   "main": "server.js",
   "scripts": {
     "ng": "ng",
-    "dev": "opn http://localhost:4201 -- 'google chrome' & ng serve -port 4201",
+    "dev": "opn http://localhost:${npm_package_config_client_port} -- 'google chrome' & ng serve --port ${npm_package_config_client_port} --host 0.0.0.0",
+    "devssl": "opn https://localhost:${npm_package_config_client_port} -- 'google chrome' & ng serve --port ${npm_package_config_client_port} --host 0.0.0.0 --ssl 1 --ssl-key ${HOME}/.ssh/webserver.key --ssl-cert ${HOME}/.ssh/webserver.pem",
     "start": "node server.js",
     "build": "ng build --prod --aot",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "mockserver": "export PORT=${npm_package_config_port}; node server.js",
+    "mockserver": "export PORT=${npm_package_config_server_port}; node server.js",
     "env": "env"
   },
   "config": {
-    "port": 3030
+    "https": false,
+    "client_port": 4201,
+    "server_port": 3030
   },
   "repository": {
     "type": "git",
@@ -33,8 +36,10 @@
     "@angular/compiler": "^4.0.0",
     "@angular/compiler-cli": "^4.0.0",
     "@angular/core": "^4.0.0",
+    "@angular/flex-layout": "^2.0.0-beta.8",
     "@angular/forms": "^4.0.0",
     "@angular/http": "^4.0.0",
+    "@angular/material": "^2.0.0-beta.3",
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/platform-server": "^4.0.0",
@@ -42,9 +47,11 @@
     "@types/lodash": "^4.14.58",
     "@types/moment": "^2.13.0",
     "body-parser": "^1.17.1",
+    "buffer": "^5.0.6",
     "cfenv": "^1.0.4",
     "core-js": "^2.4.1",
     "express": "^4.15.2",
+    "hammerjs": "^2.0.8",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
     "recordrtc": "^5.4.1",
@@ -74,6 +81,6 @@
     "protractor": "~5.1.0",
     "ts-node": "~2.0.0",
     "tslint": "~4.5.0",
-    "typescript": "~2.2.1"
+    "typescript": "^2.2.2"
   }
 }

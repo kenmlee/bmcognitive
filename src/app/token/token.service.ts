@@ -9,9 +9,20 @@ export class TokenService {
 
   constructor(private _http: Http) { }
 
-  getToken(username: string, password: string, url: string) {
-    const basicAuth = btoa(`${username}:${password}`);
-    const tokenUrl = `${environment.BASE_API_URL}token?basicauth=${basicAuth}&type=stream&url=${url}`;
+  // getToken(username: string, password: string, url: string) {
+  //   const basicAuth = btoa(`${username}:${password}`);
+  //   const tokenUrl = `${environment.BASE_API_URL}token?basicauth=${basicAuth}&type=stream&url=${url}`;
+
+  //   return this._http.get(tokenUrl)
+  //     .map((res: Response) => {
+  //       return res.text();
+  //     }).catch((err: Response | any) => {
+  //       console.log(err);
+  //       return err;
+  //     });
+  // }
+  getToken(service: string) {
+    const tokenUrl = `${environment.BASE_API_URL}token?service=${service}&type=stream`;
 
     return this._http.get(tokenUrl)
       .map((res: Response) => {

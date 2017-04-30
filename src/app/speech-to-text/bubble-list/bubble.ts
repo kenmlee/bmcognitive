@@ -1,9 +1,11 @@
 import moment from 'moment';
 
 export class Bubble {
+  index = -1;
+  dataURL = '';
   private _startTime: moment.Moment;
 
-  constructor(private content: string) {
+  constructor(public content: string) {
     this._startTime = moment();
   }
 

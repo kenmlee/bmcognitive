@@ -1,0 +1,16 @@
+.audio-recorder {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.provider {
+  margin-top: 5px;
+  min-width: 200px;
+  width: 300px;
+}
+
+.right {
+  align-self: flex-end;
+  float: right;
+}

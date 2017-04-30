@@ -19,8 +19,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "assets/css/normalize.css",
-        "assets/css/skeleton.css"
+        "assets/css/styles.scss",
+        "assets/css/app.theme.scss"
       ],
       "scripts": [
         "../node_modules/moment/moment.js",
@@ -55,7 +55,8 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
-    "component": {}
+    "styleExt": "scss",
+    "component": {
+    }
   }
 }

@@ -1,7 +1,3 @@
-.compact {
-  display: inline;
-}
-
-textarea {
-  min-height: 256px;
+md-card {
+  margin: 5px;
 }

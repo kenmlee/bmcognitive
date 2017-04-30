@@ -14,6 +14,9 @@ import { environment } from '../../environments/environment';
   providers: [EnvConfigService, TokenService]
 })
 export class EnvConfigComponent implements OnInit {
+  production = environment.production;
+  API_URL = environment.BASE_API_URL;
+
   name: string;
   isLocal: boolean;
   connects: BluemixConnect[] = [];
@@ -37,18 +40,18 @@ export class EnvConfigComponent implements OnInit {
 
   getToken(connect: BluemixConnect) {
     this.currentConnect = connect;
-    this._tokenService.getToken(connect.username, connect.password, connect.url)
+    this._tokenService.getToken(connect.service)
       .subscribe((t: string) => this.token = t);
   }
 
   getConnections(cfService: object) {
     for (const service of environment.services) {
-      const cfs = cfService[service.replace(/-/g, '_')];
+      const cfs = cfService[service.name.replace(/-/g, '_')];
       if (cfs) {
         console.log(cfs);
         for (const conn of cfs) {
           const connect = new BluemixConnect();
-          connect.service = service;
+          connect.service = service.name;
           connect.name = conn.name;
           connect.label = conn.label;
           connect.plan = conn.plan;

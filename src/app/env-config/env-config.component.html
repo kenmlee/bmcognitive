@@ -1,34 +1,40 @@
-<div class="row">
-  <div class="four columns">
-    <label class="compact">Name:</label>
-  </div>
-  <div class="eight columns">
-    <span>{{name}}</span><span [hidden]="!isLocal">@localhost</span>
-  </div>
-</div>
+<md-card>
+  <md-card-content>
+    Name: {{name?name:'NONE'}}<span [hidden]="!isLocal">@localhost</span>
 
-<div class="row" [hidden]="connects?.length<1">
-  <table class="u-full-width">
-    <thead>
-      <tr>
-        <th>Services</th>
-        <th>Label</th>
-        <th>Connects</th>
-        <th>Token</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let connect of connects">
-        <td>{{connect.service}}</td>
-        <td>{{connect.label}}</td>
-        <td>{{connect.name}}</td>
-        <td><button class='button button-primary' (click)="getToken(connect)">get token</button></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+    <div class="row" [hidden]="connects?.length<1">
+      <table class="u-full-width">
+        <thead>
+          <tr>
+            <th>Services</th>
+            <th>Label</th>
+            <th>Connects</th>
+            <th>Token</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let connect of connects">
+            <td>{{connect.service}}</td>
+            <td>{{connect}</td>
+            <td>{{connect.name}}</td>
+            <td><button class='button button-primary' (click)="getToken(connect)">get token</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-<div class="row" [hidden]="!currentConnect">
-  <label for="token">the token of [{{ currentConnect?.name}}]:</label>
-  <textarea disabled class="u-full-width" placeholder="<empty>" name="token">{{token}}</textarea>
-</div>
+    <div class="row" [hidden]="!currentConnect">
+      <label for="token">the token of [{{ currentConnect?.name}}]:</label>
+      <textarea disabled class="u-full-width" placeholder="<empty>" name="token">{{token}}</textarea>
+    </div>
+
+  </md-card-content>
+</md-card>
+
+<md-card>
+  <md-card-content>
+    <p>production: {{ production }}</p>
+    <p>BASE_API_URL: {{ API_URL }}</p>
+    <app-system-check></app-system-check>
+  </md-card-content>
+</md-card>
